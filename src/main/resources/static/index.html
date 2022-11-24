@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>FireFighter</title>
+</head>
+<body>
+    <nav class="navbar bg-light">
+        <div class="container-fluid justify-content-start">
+            <span class="navbar-brand mb-0 h1">Firefighter</span>
+            <spa class="navbar-text">minigame for developers</spa>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="sideMenu">
+            <div class="card">
+                <button class="btn btn-secondary" id="randomFirefighter" onclick="randomFirefighter()">Random Firefighter</button>
+                <button class="btn btn-secondary" id="stopRandomFirefighter" onclick="stopRandomFirefighter()" disabled="true">Stop</button>
+                <div class="card-body">
+                    Basic implementation of firefighter, extinguishes forest on random coordinates every 25ms
+                </div>
+            </div>
+            <button class="btn btn-secondary w-100" onclick="resetBoard()">Reset board</button>
+        </div>
+        <div id="wrapper"></div>
+        <div class="sideMenu">
+            <div class="card">
+                <div class="card-body">
+                    The Colored square in front of you represents the burning forest, as a developer you can use your skills to help extinguish it.
+                    <br><br>
+                    <p>The board is made of 50x50 individual cells, so the coordinates are actually an index in two-dimensional array,
+                        therefore values other than 0-49 are ignored.</p>
+                    <p>Now it's your turn to make program that will send http request to address:</p>
+                    <input class="form-control" id="extinguish-input" type="text" value="blamedevs.com/firefighter/extinguish?x=#&y=#" aria-label="readonly input example" readonly>
+                    <p>Replace # with a value between 0-49. For optimization, you can get the current state of the board from the endpoint:</p>
+                    <input class="form-control" id="board-input" type="text" value="blamedevs.com/firefighter/board" aria-label="readonly input example" readonly>
+                    <p>Respone should be a boolean[50][50] array where true means that cell is burning</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
